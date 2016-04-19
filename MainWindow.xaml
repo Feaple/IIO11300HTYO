@@ -1,0 +1,42 @@
+﻿<Window x:Class="HallintaPaneeli.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HallintaPaneeli"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <DockPanel VerticalAlignment="Stretch" HorizontalAlignment="Stretch" LastChildFill="True" >
+            <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
+                <StackPanel Name="spLogin" Background="Cyan" MinWidth="200" Orientation="Horizontal">
+                    <StackPanel>
+                        <TextBlock>Login</TextBlock>
+                        <TextBlock>Username</TextBlock>
+                        <TextBlock>Password</TextBlock>
+                    </StackPanel>
+                    <StackPanel MinWidth="200" HorizontalAlignment="Left">
+                        <!-- olion property ovat casesensitive-->
+                        <TextBlock Name="txtTyhja" FontFamily="Tw Cen MT Condensed Extra Bold" Margin="1"></TextBlock>
+                        <TextBox Name="txtUsername" FontFamily="Tw Cen MT Condensed Extra Bold" Margin="1"></TextBox>
+                        <PasswordBox x:Name="passwordBox" Margin="1"/>
+                        <Button x:Name="btnLogin" Content="Login" Click="btnLogin_Click"  />
+                        
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Name="spMenu">
+                    <Button Content="Näytä Käyttäjät" Height="28" HorizontalAlignment="Left" Name="btnKayttajat"  Width="167" Margin="5,5,5,0" Click="btnHaeKayttaja_Click" Visibility="Hidden"/>
+                    <Button Content="Näytä keskusteluketjut" Height="28" HorizontalAlignment="Left" Name="btnKetjut"  Width="167" Margin="5,5,5,0" Click="btnHaeKetjut_Click" Visibility="Hidden"/>
+                </StackPanel>
+            </StackPanel>
+            <StatusBar DockPanel.Dock="Bottom">
+                <TextBlock Name="tbMessage" Text="Tähän ilmoitukset" Height="32"/>
+            </StatusBar>
+            <StackPanel Width="100" HorizontalAlignment="Left" Height="200" VerticalAlignment="Top">
+                <Button Name="btnRemove" Margin="5" Visibility="Hidden">Remove</Button>
+                <Button Name="btnLogout" Margin="5" Visibility="Hidden">Logout</Button>
+            </StackPanel>
+            <DataGrid x:Name="dgNayta"></DataGrid>
+        </DockPanel>
+    </Grid>
+</Window>
